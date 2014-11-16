@@ -24,6 +24,10 @@ class CrossValidation:
         self.folds = cv
         ratio = 1.0 / cv
         self.generateValTrainSets(allData, ratio)
+        self.accuracy = {}
+        self.precision = {}
+        self.recall = {}
+        self.f1score = {}
 
     def splitDataLabelWise(self, allData):
         temp = allData[allData[:,-1].argsort()]
@@ -76,49 +80,49 @@ class CrossValidation:
         self.listNeg = indexNeg
         return
 
-    def cross_val_accuracy(self, model):
+    def cross_val_score(self, model):
 
-        scores = []
-        for i in range(self.folds):
-            Xtrain, Ytrain, Xtest, Ytest = self.train_test_set(i)
-            model.fit(Xtrain, Ytrain)
-            Ypred = model.predict(Xtest)
-            accuracy = accuracy_score(Ytest, Ypred)
-            scores.append(accuracy)
-        return np.array(scores)
-
-    def cross_val_precision(self, model):
-
+        accuracy_scores = []
         precision_scores = []
-        for i in range(self.folds):
-            Xtrain, Ytrain, Xtest, Ytest = self.train_test_set(i)
-            model.fit(Xtrain, Ytrain)
-            Ypred = model.predict(Xtest)
-            accuracy = precision_score(Ytest, Ypred, average='macro')
-            precision_scores.append(accuracy)
-        return np.array(precision_scores)
-
-    def cross_val_recall(self, model):
-
         recall_scores = []
-        for i in range(self.folds):
-            Xtrain, Ytrain, Xtest, Ytest = self.train_test_set(i)
-            model.fit(Xtrain, Ytrain)
-            Ypred = model.predict(Xtest)
-            accuracy = recall_score(Ytest, Ypred, average='macro')
-            recall_scores.append(accuracy)
-        return np.array(recall_scores)
-
-    def cross_val_f1score(self, model):
-
         f1_scores = []
         for i in range(self.folds):
             Xtrain, Ytrain, Xtest, Ytest = self.train_test_set(i)
             model.fit(Xtrain, Ytrain)
             Ypred = model.predict(Xtest)
-            accuracy = f1_score(Ytest, Ypred, average='macro')
-            f1_scores.append(accuracy)
-        return np.array(f1_scores)
+            accuracy = accuracy_score(Ytest, Ypred)
+            precision = precision_score(Ytest, Ypred, average='macro')
+            recall = recall_score(Ytest, Ypred, average='macro')
+            f1score = f1_score(Ytest, Ypred, average='macro')
+            accuracy_scores.append(accuracy)
+            precision_scores.append(precision)
+            recall_scores.append(recall)
+            f1_scores.append(f1score)
+        self.accuracy[model] = np.array(accuracy_scores)
+        self.precision[model] = np.array(precision_scores)
+        self.recall[model] = np.array(recall_scores)
+        self.f1score[model] = np.array(f1_scores)
+        return 
+
+    def cross_val_accuracy(self, model):
+        if model not in self.accuracy:
+            self.cross_val_score(model)
+        return self.accuracy[model]
+
+    def cross_val_precision(self, model):
+        if model not in self.precision:
+            self.cross_val_score(model)
+        return self.precision[model]
+
+    def cross_val_recall(self, model):
+        if model not in self.recall:
+            self.cross_val_score(model)    
+        return self.recall[model]
+
+    def cross_val_f1score(self, model):
+        if model not in self.f1score:
+            self.cross_val_score(model)
+        return self.f1score[model]
 
     def train_test_set(self, i):
         listPos = self.listPos
@@ -140,12 +144,3 @@ class CrossValidation:
         Xtest = valSet[:, :-1]
         Ytest = valSet[:, -1] 
         return Xtrain, Ytrain, Xtest, Ytest
-
-
-
-
-
-
-
-
-
