@@ -12,9 +12,10 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.tree import DecisionTreeClassifier
+from Smote import oversampleData
 
 
-dataFiles = ["final.arff"]
+dataFiles = ["PC4.arff"]
 fpr1 = dict()
 tpr1 = dict()
 roc_auc1 = dict()
@@ -26,6 +27,7 @@ for fname in dataFiles:
 
 	X = allData[:,:-1]
 	y = allData[:,-1]
+	#X,y = oversampleData(X, y, 100, 3)
 	n_features = X.shape[1]
 
 	plt.figure()
