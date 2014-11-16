@@ -14,7 +14,7 @@ from sklearn.ensemble import AdaBoostClassifier
 from sklearn.tree import DecisionTreeClassifier
 
 
-dataFiles = ["PC4.arff"]
+dataFiles = ["PC4.arff","JM1.arff"]
 fpr1 = dict()
 tpr1 = dict()
 roc_auc1 = dict()
