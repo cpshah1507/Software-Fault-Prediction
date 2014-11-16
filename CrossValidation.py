@@ -1,6 +1,9 @@
 
 import numpy as np
 from sklearn.metrics import accuracy_score
+from sklearn.metrics import precision_score
+from sklearn.metrics import recall_score
+from sklearn.metrics import f1_score
 
 '''
     This class normalizes the data, ensures same proportion of labels in test set and train set
@@ -43,6 +46,9 @@ class CrossValidation:
         X = (X - minX)/ den
         return X
 
+    def instancesPerLabel(self):
+        return self.dataPos.shape[0], self.dataNeg.shape[0]
+
     def generateValTrainSets(self, allData, ratio):
         self.splitDataLabelWise(allData)
 
@@ -70,7 +76,7 @@ class CrossValidation:
         self.listNeg = indexNeg
         return
 
-    def cross_val_score(self, model):
+    def cross_val_accuracy(self, model):
 
         scores = []
         for i in range(self.folds):
@@ -81,6 +87,38 @@ class CrossValidation:
             scores.append(accuracy)
         return np.array(scores)
 
+    def cross_val_precision(self, model):
+
+        precision_scores = []
+        for i in range(self.folds):
+            Xtrain, Ytrain, Xtest, Ytest = self.train_test_set(i)
+            model.fit(Xtrain, Ytrain)
+            Ypred = model.predict(Xtest)
+            accuracy = precision_score(Ytest, Ypred, average='macro')
+            precision_scores.append(accuracy)
+        return np.array(precision_scores)
+
+    def cross_val_recall(self, model):
+
+        recall_scores = []
+        for i in range(self.folds):
+            Xtrain, Ytrain, Xtest, Ytest = self.train_test_set(i)
+            model.fit(Xtrain, Ytrain)
+            Ypred = model.predict(Xtest)
+            accuracy = recall_score(Ytest, Ypred, average='macro')
+            recall_scores.append(accuracy)
+        return np.array(recall_scores)
+
+    def cross_val_f1score(self, model):
+
+        f1_scores = []
+        for i in range(self.folds):
+            Xtrain, Ytrain, Xtest, Ytest = self.train_test_set(i)
+            model.fit(Xtrain, Ytrain)
+            Ypred = model.predict(Xtest)
+            accuracy = f1_score(Ytest, Ypred, average='macro')
+            f1_scores.append(accuracy)
+        return np.array(f1_scores)
 
     def train_test_set(self, i):
         listPos = self.listPos
