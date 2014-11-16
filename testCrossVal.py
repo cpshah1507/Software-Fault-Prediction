@@ -22,7 +22,7 @@ Xtrain = allData[:, :-1]
 Ytrain = allData[:, -1] 
 n_features = Xtrain.shape[1]
 
-Xtrain, Ytrain = sampleData(Xtrain, Ytrain, 200, 10, 5)
+#Xtrain, Ytrain = sampleData(Xtrain, Ytrain, 200, 10, 5)
 crossVal = CrossValidation(Xtrain, Ytrain, cv=10)
 
 print ""
