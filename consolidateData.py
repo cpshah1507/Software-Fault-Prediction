@@ -90,16 +90,22 @@ while 1:
 f1.close()
 f2.close()
 
-# Add MC1 to file4.arff
+# Add MC1,PC5 to file4.arff
 
 f1 = open("MC1.arff","r")
+f2 = open("PC5.arff","r")
 c1 = open("file4.arff","w")
 
 data = f1.read()
 c1.write(data)
 c1.write('\n')
 
+data = f2.read()
+c1.write(data)
+c1.write('\n')
+
 f1.close()
+f2.close()
 c1.close()
 
 
@@ -125,7 +131,6 @@ f2.close()
 
 f1 = open("file2.arff","r")
 f2 = open("file5.arff","r")
-f3 = open("PC5.arff","r")
 
 c1 = open("file6.arff","w")
 
@@ -135,14 +140,7 @@ c1.write(data)
 data = f2.read()
 c1.write(data)
 
-data = f3.read()
-c1.write(data)
-c1.write('\n')
-
 f1.close()
 f2.close()
 f3.close()
 c1.close()
-
-
-
