@@ -32,10 +32,10 @@ def SMOTE(T, N, k):
     	S = shuffle(T)
     	return S[:N, :]
 
-    if (N % 100) != 0:
-        raise ValueError("N must be < 100 or multiple of 100")
+    # if (N % 100) != 0:
+    #     raise ValueError("N must be < 100 or multiple of 100")
     
-    N = N/100
+    N = int(N * 1.0/100)
     n_synthetic_samples = N * n_minority_samples
     S = np.zeros(shape=(n_synthetic_samples, n_features))
     
@@ -46,7 +46,7 @@ def SMOTE(T, N, k):
     #Calculate synthetic samples
     for i in xrange(n_minority_samples):
         # print i
-        nn = neigh.kneighbors(T[i], return_distance=False)
+        nn = neigh.kneighbors(T[i], n_neighbors = k,return_distance=False)
         #print nn[0]
         for n in xrange(N):
             nn_index = choice(nn[0])
@@ -56,29 +56,41 @@ def SMOTE(T, N, k):
             for j in range(n_features):    
                 dif = T[nn_index][j] - T[i][j]
                 gap = np.random.random()
-                S[n + i * N, :][j] = T[i,:][j] + gap * dif
+                S[n + i * N, j] = T[i, j] + gap * dif
     
     return S
+
+def underSampling(T, N, minority_size):
+    S = shuffle(T)
+    end = int(minority_size * 100/N)
+    return S[:end, :]
+
 
 
 def splitDataLabelWise(allData):
     temp = allData[allData[:,-1].argsort()]
     pos = np.where(temp[:, -1] == 1)[0][0]
-    dataNeg = allData[: pos, :]
-    dataPos = allData[pos:, :]
+    dataNeg = temp[: pos, :]
+    dataPos = temp[pos:, :]
     return dataNeg, dataPos
 
-def oversampleData(X, Y, N, k):
+def sampleData(X, Y, N_oversample, N_undersample, k):
     allData = np.c_[X, Y]
     dataNeg, dataPos = splitDataLabelWise(allData)
+    pos = np.where(dataPos[:, -1] == 0)[0]
     if dataNeg.shape[0] < dataPos.shape[0]:
-        temp = SMOTE(dataNeg[:, :-1], N, k)
+        temp = SMOTE(dataNeg[:, :-1], N_oversample, k)
         dataNeg = np.append(dataNeg, np.c_[temp, np.zeros(temp.shape[0])], axis = 0)
+        # temp = underSampling(dataPos[:, :-1], N_undersample, dataNeg.shape[0])
+        # dataPos = np.c_[temp, np.ones(temp.shape[0])]
 
     else:
-        temp = SMOTE(dataPos[:, :-1], N, k)
+        temp = SMOTE(dataPos[:, :-1], N_oversample, k)
         dataPos = np.append(dataPos, np.c_[temp, np.ones(temp.shape[0])], axis = 0)
+        # temp = underSampling(dataNeg[:, :-1], N_undersample, dataPos.shape[0])
+        # dataNeg = np.c_[temp, np.zeros(temp.shape[0])]
 
+    pos = np.where(dataPos[:, -1] == 0)[0]
     S = np.append(dataPos, dataNeg, axis = 0)
     S = shuffle(S)
     return S[:, :-1], S[:, -1]

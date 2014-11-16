@@ -8,7 +8,7 @@ from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.naive_bayes import MultinomialNB
-from Smote import oversampleData
+from Smote import sampleData
 
 if len(sys.argv) > 1:
     filename = sys.argv[1]
@@ -22,7 +22,7 @@ Xtrain = allData[:, :-1]
 Ytrain = allData[:, -1] 
 n_features = Xtrain.shape[1]
 
-#Xtrain, Ytrain = oversampleData(Xtrain, Ytrain, 60, 3)
+Xtrain, Ytrain = sampleData(Xtrain, Ytrain, 200, 10, 5)
 crossVal = CrossValidation(Xtrain, Ytrain, cv=10)
 
 print ""
@@ -39,35 +39,35 @@ scores = crossVal.cross_val_accuracy(clf)
 
 print "RandomForestClassifier : ", scores.mean()
 
-# clf = ExtraTreesClassifier(n_estimators=120, max_depth=None, min_samples_split=1, random_state=0, max_features=int(pow(n_features, 0.5)))
+clf = ExtraTreesClassifier(n_estimators=120, max_depth=None, min_samples_split=1, random_state=0, max_features=int(pow(n_features, 0.5)))
 
-# scores = crossVal.cross_val_accuracy(clf)
-# print "ExtraTreesClassifier : ", scores.mean()
+scores = crossVal.cross_val_accuracy(clf)
+print "ExtraTreesClassifier : ", scores.mean()
 
-# clf = AdaBoostClassifier(DecisionTreeClassifier(max_depth=1), n_estimators=400, algorithm="SAMME.R")
+clf = AdaBoostClassifier(DecisionTreeClassifier(max_depth=1), n_estimators=400, algorithm="SAMME.R")
 
-# scores = crossVal.cross_val_accuracy(clf)
-# print "AdaBoostClassifier : ", scores.mean()
+scores = crossVal.cross_val_accuracy(clf)
+print "AdaBoostClassifier : ", scores.mean()
 
 clf = linear_model.LogisticRegression()
 
 scores = crossVal.cross_val_accuracy(clf)
 print "LogisticRegression : ", scores.mean()
 
-# clf = MultinomialNB()
+clf = MultinomialNB()
 
-# scores = crossVal.cross_val_accuracy(clf)
-# print "MultinomialNB : ", scores.mean()
+scores = crossVal.cross_val_accuracy(clf)
+print "MultinomialNB : ", scores.mean()
 
-# clf = svm.SVC(kernel = 'linear', C = 0.01, class_weight = 'auto')
+clf = svm.SVC(kernel = 'linear', C = 0.01, class_weight = 'auto')
 
-# scores = crossVal.cross_val_accuracy(clf)
-# print "SVM with linear kernel (C = 0.01): ", scores.mean()
+scores = crossVal.cross_val_accuracy(clf)
+print "SVM with linear kernel (C = 0.01): ", scores.mean()
 
-# clf = svm.SVC(kernel='rbf', gamma = 1, C = 50, class_weight = 'auto')
+clf = svm.SVC(kernel='rbf', gamma = 1, C = 50, class_weight = 'auto')
 
-# scores = crossVal.cross_val_accuracy(clf)
-# print "SVM gaussian kernel (C = 50, gamma = 1): ", scores.mean()
+scores = crossVal.cross_val_accuracy(clf)
+print "SVM gaussian kernel (C = 50, gamma = 1): ", scores.mean()
 
 print ""
 print "Precision Scores"
@@ -80,35 +80,35 @@ scores = crossVal.cross_val_precision(clf)
 #print scores
 print "RandomForestClassifier : ", scores.mean()
 
-# clf = ExtraTreesClassifier(n_estimators=120, max_depth=None, min_samples_split=1, random_state=0, max_features=int(pow(n_features, 0.5)))
+clf = ExtraTreesClassifier(n_estimators=120, max_depth=None, min_samples_split=1, random_state=0, max_features=int(pow(n_features, 0.5)))
 
-# scores = crossVal.cross_val_precision(clf)
-# print "ExtraTreesClassifier : ", scores.mean()
+scores = crossVal.cross_val_precision(clf)
+print "ExtraTreesClassifier : ", scores.mean()
 
-# clf = AdaBoostClassifier(DecisionTreeClassifier(max_depth=1), n_estimators=400, algorithm="SAMME.R")
+clf = AdaBoostClassifier(DecisionTreeClassifier(max_depth=1), n_estimators=400, algorithm="SAMME.R")
 
-# scores = crossVal.cross_val_precision(clf)
-# print "AdaBoostClassifier : ", scores.mean()
+scores = crossVal.cross_val_precision(clf)
+print "AdaBoostClassifier : ", scores.mean()
 
 clf = linear_model.LogisticRegression()
 
 scores = crossVal.cross_val_precision(clf)
 print "LogisticRegression : ", scores.mean()
 
-# clf = MultinomialNB()
+clf = MultinomialNB()
 
-# scores = crossVal.cross_val_precision(clf)
-# print "MultinomialNB : ", scores.mean()
+scores = crossVal.cross_val_precision(clf)
+print "MultinomialNB : ", scores.mean()
 
-# clf = svm.SVC(kernel = 'linear', C = 0.01)
+clf = svm.SVC(kernel = 'linear', C = 0.01)
 
-# scores = crossVal.cross_val_precision(clf)
-# print "SVM with linear kernel (C = 0.01): ", scores.mean()
+scores = crossVal.cross_val_precision(clf)
+print "SVM with linear kernel (C = 0.01): ", scores.mean()
 
-# clf = svm.SVC(kernel='rbf', gamma = 1, C = 50)
+clf = svm.SVC(kernel='rbf', gamma = 1, C = 50)
 
-# scores = crossVal.cross_val_precision(clf)
-# print "SVM gaussian kernel (C = 50, gamma = 1): ", scores.mean()
+scores = crossVal.cross_val_precision(clf)
+print "SVM gaussian kernel (C = 50, gamma = 1): ", scores.mean()
 
 print ""
 print "Recall Scores"
@@ -121,35 +121,35 @@ scores = crossVal.cross_val_recall(clf)
 #print scores
 print "RandomForestClassifier : ", scores.mean()
 
-# clf = ExtraTreesClassifier(n_estimators=120, max_depth=None, min_samples_split=1, random_state=0, max_features=int(pow(n_features, 0.5)))
+clf = ExtraTreesClassifier(n_estimators=120, max_depth=None, min_samples_split=1, random_state=0, max_features=int(pow(n_features, 0.5)))
 
-# scores = crossVal.cross_val_recall(clf)
-# print "ExtraTreesClassifier : ", scores.mean()
+scores = crossVal.cross_val_recall(clf)
+print "ExtraTreesClassifier : ", scores.mean()
 
-# clf = AdaBoostClassifier(DecisionTreeClassifier(max_depth=1), n_estimators=400, algorithm="SAMME.R")
+clf = AdaBoostClassifier(DecisionTreeClassifier(max_depth=1), n_estimators=400, algorithm="SAMME.R")
 
-# scores = crossVal.cross_val_recall(clf)
-# print "AdaBoostClassifier : ", scores.mean()
+scores = crossVal.cross_val_recall(clf)
+print "AdaBoostClassifier : ", scores.mean()
 
 clf = linear_model.LogisticRegression()
 
 scores = crossVal.cross_val_recall(clf)
 print "LogisticRegression : ", scores.mean()
 
-# clf = MultinomialNB()
+clf = MultinomialNB()
 
-# scores = crossVal.cross_val_recall(clf)
-# print "MultinomialNB : ", scores.mean()
+scores = crossVal.cross_val_recall(clf)
+print "MultinomialNB : ", scores.mean()
 
-# clf = svm.SVC(kernel = 'linear', C = 0.01)
+clf = svm.SVC(kernel = 'linear', C = 0.01)
 
-# scores = crossVal.cross_val_recall(clf)
-# print "SVM with linear kernel (C = 0.01): ", scores.mean()
+scores = crossVal.cross_val_recall(clf)
+print "SVM with linear kernel (C = 0.01): ", scores.mean()
 
-# clf = svm.SVC(kernel='rbf', gamma = 1, C = 50)
+clf = svm.SVC(kernel='rbf', gamma = 1, C = 50)
 
-# scores = crossVal.cross_val_recall(clf)
-# print "SVM gaussian kernel (C = 50, gamma = 1): ", scores.mean()
+scores = crossVal.cross_val_recall(clf)
+print "SVM gaussian kernel (C = 50, gamma = 1): ", scores.mean()
 
 print ""
 print "F1 Scores"
@@ -162,35 +162,35 @@ scores = crossVal.cross_val_f1score(clf)
 #print scores
 print "RandomForestClassifier : ", scores.mean()
 
-# clf = ExtraTreesClassifier(n_estimators=120, max_depth=None, min_samples_split=1, random_state=0, max_features=int(pow(n_features, 0.5)))
+clf = ExtraTreesClassifier(n_estimators=120, max_depth=None, min_samples_split=1, random_state=0, max_features=int(pow(n_features, 0.5)))
 
-# scores = crossVal.cross_val_f1score(clf)
-# print "ExtraTreesClassifier : ", scores.mean()
+scores = crossVal.cross_val_f1score(clf)
+print "ExtraTreesClassifier : ", scores.mean()
 
-# clf = AdaBoostClassifier(DecisionTreeClassifier(max_depth=1), n_estimators=400, algorithm="SAMME.R")
+clf = AdaBoostClassifier(DecisionTreeClassifier(max_depth=1), n_estimators=400, algorithm="SAMME.R")
 
-# scores = crossVal.cross_val_f1score(clf)
-# print "AdaBoostClassifier : ", scores.mean()
+scores = crossVal.cross_val_f1score(clf)
+print "AdaBoostClassifier : ", scores.mean()
 
 clf = linear_model.LogisticRegression()
 
 scores = crossVal.cross_val_f1score(clf)
 print "LogisticRegression : ", scores.mean()
 
-# clf = MultinomialNB()
+clf = MultinomialNB()
 
-# scores = crossVal.cross_val_f1score(clf)
-# print "MultinomialNB : ", scores.mean()
+scores = crossVal.cross_val_f1score(clf)
+print "MultinomialNB : ", scores.mean()
 
-# clf = svm.SVC(kernel = 'linear', C = 0.01)
+clf = svm.SVC(kernel = 'linear', C = 0.01)
 
-# scores = crossVal.cross_val_f1score(clf)
-# print "SVM with linear kernel (C = 0.01): ", scores.mean()
+scores = crossVal.cross_val_f1score(clf)
+print "SVM with linear kernel (C = 0.01): ", scores.mean()
 
-# clf = svm.SVC(kernel='rbf', gamma = 1, C = 50)
+clf = svm.SVC(kernel='rbf', gamma = 1, C = 50)
 
-# scores = crossVal.cross_val_f1score(clf)
-# print "SVM gaussian kernel (C = 50, gamma = 1): ", scores.mean()
+scores = crossVal.cross_val_f1score(clf)
+print "SVM gaussian kernel (C = 50, gamma = 1): ", scores.mean()
 
 print ""
 

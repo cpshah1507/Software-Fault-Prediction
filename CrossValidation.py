@@ -28,8 +28,8 @@ class CrossValidation:
     def splitDataLabelWise(self, allData):
         temp = allData[allData[:,-1].argsort()]
         pos = np.where(temp[:, -1] == 1)[0][0]
-        self.dataNeg = allData[: pos, :]
-        self.dataPos = allData[pos:, :]
+        self.dataNeg = temp[: pos, :]
+        self.dataPos = temp[pos:, :]
          
     def shuffle(self, X):
         n, d = X.shape
@@ -71,7 +71,7 @@ class CrossValidation:
                 indexPos.append((firstPos, lastPos))
             firstPos = firstPos + numPos
             firstNeg = firstNeg + numNeg
-        #print indexPos, indexNeg
+
         self.listPos = indexPos
         self.listNeg = indexNeg
         return
