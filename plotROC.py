@@ -6,7 +6,7 @@ from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.tree import DecisionTreeClassifier
 
-allData = np.loadtxt("JM1.arff", delimiter=',')
+allData = np.loadtxt("filtered.arff", delimiter=',')
 
 X = allData[:,:-1]
 y = allData[:,-1]
