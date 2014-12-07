@@ -10,39 +10,13 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.naive_bayes import MultinomialNB
 from Smote import sampleData
 
-if len(sys.argv) > 1:
-    filename = sys.argv[1]
-else:
-    raise ValueError("No such file exists.")  
-    
-print sys.argv[1]
-j = int(sys.argv[2])
+
+filename = 'filtered.arff'
 
 allData = np.loadtxt(filename, delimiter=',')
 Xtrain = allData[:, :-1]
-Ytrain = allData[:, -1] 
-n_featuresOld = Xtrain.shape[1]
-XtrainOld = Xtrain
-for i in range(j):
-	print 'Old # features = ', Xtrain.shape[1]
-
-	clf = ExtraTreesClassifier()
-	Xtrain = clf.fit(Xtrain, Ytrain).transform(Xtrain)
-        if(i==0):
-		arr = clf.feature_importances_
-		arrSum = np.sum(arr)
-
-	print 'New # features = ', Xtrain.shape[1]
-
+Ytrain = allData[:, -1]
 n_features = Xtrain.shape[1]
-
-indices = [np.where(XtrainOld[0]==x)[0][0] for x in Xtrain[0]]
-print 'Features selected are', indices
-print 'Weights of important features are: '
-for i in range(len(indices)):
-	print 'The contribution of feature ', indices[i], 'is : ', (arr[indices[i]]/arrSum)*100
-
-
 Xtrain, Ytrain = sampleData(Xtrain, Ytrain, 200, 10, 5)
 crossVal = CrossValidation(Xtrain, Ytrain, cv=10)
 
@@ -60,10 +34,10 @@ scores = crossVal.cross_val_accuracy(clf)
 
 print "RandomForestClassifier : ", scores.mean()
 '''
-#clf = ExtraTreesClassifier(n_estimators=120, max_depth=None, min_samples_split=1, random_state=0, max_features=int(pow(n_features, 0.5)))
+clf = ExtraTreesClassifier(n_estimators=120, max_depth=None, min_samples_split=1, random_state=0, max_features=int(pow(n_features, 0.5)))
 
-#scores = crossVal.cross_val_accuracy(clf)
-#print "ExtraTreesClassifier : ", scores.mean()
+scores = crossVal.cross_val_accuracy(clf)
+print "ExtraTreesClassifier : ", scores.mean()
 '''
 clf = AdaBoostClassifier(DecisionTreeClassifier(max_depth=1), n_estimators=400, algorithm="SAMME.R")
 
@@ -172,9 +146,9 @@ clf = svm.SVC(kernel='rbf', gamma = 1, C = 50)
 scores = crossVal.cross_val_recall(clf)
 print "SVM gaussian kernel (C = 50, gamma = 1): ", scores.mean()
 '''
-print ""
-print "F1 Scores"
-print ""
+# print ""
+# print "F1 Scores"
+# print ""
 '''
 clf = RandomForestClassifier(n_estimators=50, max_depth=None, min_samples_split=1, random_state=0, max_features=int(pow(n_features, 0.5)))
 
@@ -183,12 +157,12 @@ scores = crossVal.cross_val_f1score(clf)
 #print scores
 print "RandomForestClassifier : ", scores.mean()
 '''
-'''
+
 clf = ExtraTreesClassifier(n_estimators=120, max_depth=None, min_samples_split=1, random_state=0, max_features=int(pow(n_features, 0.5)))
 
 scores = crossVal.cross_val_f1score(clf)
 print "ExtraTreesClassifier : ", scores.mean()
-'''
+
 '''
 clf = AdaBoostClassifier(DecisionTreeClassifier(max_depth=1), n_estimators=400, algorithm="SAMME.R")
 

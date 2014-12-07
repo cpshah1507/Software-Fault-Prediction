@@ -1,0 +1,502 @@
+Script started on Sun Nov 16 12:39:10 2014
+[?1034hbash-3.2$ clearpython testCrossVal.py CM1.arff[C[C[C[C[C[C[C[C[C[Cclear[Kpython testCrossVal.py CM1.arff[C[C[C[C[C[C[C[C[C[Cclear[Kpython testCrossVal.py JM1.arff[C[C[C[C[C[C[C[C[C[Cclear[Kpython testCrossVal.py CM1.arff[C[C[C[C[C[C[C[C[C[Cclear[Kpython testCrossVal.py CM1.arff[C[C[C[C[C[C[C[C[C[Cclear[K[Kr[Ksh run_script_newcrossval [K
+CM1.arff
+
+Positive instances :  126
+Negative instances :  302
+
+Accuracy Scores
+
+RandomForestClassifier :  0.872095238095
+ExtraTreesClassifier :  0.90980952381
+AdaBoostClassifier :  0.853428571429
+LogisticRegression :  0.742666666667
+MultinomialNB :  0.729142857143
+SVM gaussian kernel (C = 50, gamma = 1):  0.822857142857
+
+Precision Scores
+
+RandomForestClassifier :  0.823251748252
+ExtraTreesClassifier :  0.899094794095
+AdaBoostClassifier :  0.782482354247
+LogisticRegression :  0.69
+MultinomialNB :  0.623253968254
+SVM gaussian kernel (C = 50, gamma = 1):  0.72026029526
+
+Recall Scores
+
+RandomForestClassifier :  0.727777777778
+ExtraTreesClassifier :  0.783333333333
+AdaBoostClassifier :  0.713888888889
+LogisticRegression :  0.275
+MultinomialNB :  0.238888888889
+SVM gaussian kernel (C = 50, gamma = 1):  0.663888888889
+
+F1 Scores
+
+RandomForestClassifier :  0.767552042161
+ExtraTreesClassifier :  0.83397290274
+AdaBoostClassifier :  0.740812462899
+LogisticRegression :  0.379951717529
+MultinomialNB :  0.335567405591
+SVM gaussian kernel (C = 50, gamma = 1):  0.68752173913
+
+JM1.arff
+
+Positive instances :  5277
+Negative instances :  7834
+
+Accuracy Scores
+
+RandomForestClassifier :  0.859431843792
+ExtraTreesClassifier :  0.859363771374
+AdaBoostClassifier :  0.829774055047
+LogisticRegression :  0.674405001994
+MultinomialNB :  0.623681689213
+SVM gaussian kernel (C = 50, gamma = 1):  0.677614287118
+
+Precision Scores
+
+RandomForestClassifier :  0.860288014864
+ExtraTreesClassifier :  0.837122590916
+AdaBoostClassifier :  0.869000118071
+LogisticRegression :  0.69214898116
+MultinomialNB :  0.747720165086
+SVM gaussian kernel (C = 50, gamma = 1):  0.701337733163
+
+Recall Scores
+
+RandomForestClassifier :  0.77694639291
+ExtraTreesClassifier :  0.807851310151
+AdaBoostClassifier :  0.679754670988
+LogisticRegression :  0.344329076321
+MultinomialNB :  0.0987371099219
+SVM gaussian kernel (C = 50, gamma = 1):  0.347190300549
+
+F1 Scores
+
+RandomForestClassifier :  0.816447921372
+ExtraTreesClassifier :  0.822177124969
+AdaBoostClassifier :  0.762646108803
+LogisticRegression :  0.459673387371
+MultinomialNB :  0.17422447343
+SVM gaussian kernel (C = 50, gamma = 1):  0.464290639175
+
+KC1.arff
+
+Positive instances :  975
+Negative instances :  1771
+
+Accuracy Scores
+
+RandomForestClassifier :  0.879509906152
+ExtraTreesClassifier :  0.882747653806
+AdaBoostClassifier :  0.86011991658
+LogisticRegression :  0.744661105318
+MultinomialNB :  0.702124608968
+SVM gaussian kernel (C = 50, gamma = 1):  0.763623566215
+
+Precision Scores
+
+RandomForestClassifier :  0.846061426307
+ExtraTreesClassifier :  0.832259550422
+AdaBoostClassifier :  0.856232241461
+LogisticRegression :  0.680761467048
+MultinomialNB :  0.751622430139
+SVM gaussian kernel (C = 50, gamma = 1):  0.759282989574
+
+Recall Scores
+
+RandomForestClassifier :  0.808378815444
+ExtraTreesClassifier :  0.839983828583
+AdaBoostClassifier :  0.729098443501
+LogisticRegression :  0.528097837073
+MultinomialNB :  0.240125328482
+SVM gaussian kernel (C = 50, gamma = 1):  0.49128764908
+
+F1 Scores
+
+RandomForestClassifier :  0.826621854649
+ExtraTreesClassifier :  0.83584007284
+AdaBoostClassifier :  0.78699224706
+LogisticRegression :  0.594266365945
+MultinomialNB :  0.363059696994
+SVM gaussian kernel (C = 50, gamma = 1):  0.595934077716
+
+KC3.arff
+
+Positive instances :  108
+Negative instances :  164
+
+Accuracy Scores
+
+RandomForestClassifier :  0.884210526316
+ExtraTreesClassifier :  0.884412955466
+AdaBoostClassifier :  0.857287449393
+LogisticRegression :  0.681376518219
+MultinomialNB :  0.676113360324
+SVM gaussian kernel (C = 50, gamma = 1):  0.835425101215
+
+Precision Scores
+
+RandomForestClassifier :  0.886882284382
+ExtraTreesClassifier :  0.846874057315
+AdaBoostClassifier :  0.858706571207
+LogisticRegression :  0.676212121212
+MultinomialNB :  0.634246031746
+SVM gaussian kernel (C = 50, gamma = 1):  0.834856254856
+
+Recall Scores
+
+RandomForestClassifier :  0.836666666667
+ExtraTreesClassifier :  0.878888888889
+AdaBoostClassifier :  0.802222222222
+LogisticRegression :  0.474444444444
+MultinomialNB :  0.478888888889
+SVM gaussian kernel (C = 50, gamma = 1):  0.746666666667
+
+F1 Scores
+
+RandomForestClassifier :  0.849186088137
+ExtraTreesClassifier :  0.854879448486
+AdaBoostClassifier :  0.817857823908
+LogisticRegression :  0.537530714899
+MultinomialNB :  0.53442782192
+SVM gaussian kernel (C = 50, gamma = 1):  0.775690896865
+
+MC1.arff
+
+Positive instances :  204
+Negative instances :  9209
+
+Accuracy Scores
+
+RandomForestClassifier :  0.992032886071
+ExtraTreesClassifier :  0.994583175191
+AdaBoostClassifier :  0.992561898596
+LogisticRegression :  0.983114130071
+MultinomialNB :  0.966750016744
+SVM gaussian kernel (C = 50, gamma = 1):  0.99043714139
+
+Precision Scores
+
+RandomForestClassifier :  0.955567226891
+ExtraTreesClassifier :  0.959763071895
+AdaBoostClassifier :  0.921422173028
+LogisticRegression :  0.868055555556
+MultinomialNB :  0.295684000983
+SVM gaussian kernel (C = 50, gamma = 1):  0.902445820433
+
+Recall Scores
+
+RandomForestClassifier :  0.666666666667
+ExtraTreesClassifier :  0.785
+AdaBoostClassifier :  0.73
+LogisticRegression :  0.269166666667
+MultinomialNB :  0.405
+SVM gaussian kernel (C = 50, gamma = 1):  0.626666666667
+
+F1 Scores
+
+RandomForestClassifier :  0.782074400604
+ExtraTreesClassifier :  0.862492944072
+AdaBoostClassifier :  0.809528084528
+LogisticRegression :  0.40370324017
+MultinomialNB :  0.340223867797
+SVM gaussian kernel (C = 50, gamma = 1):  0.732643522435
+
+MC2.arff
+
+Positive instances :  132
+Negative instances :  83
+
+Accuracy Scores
+
+RandomForestClassifier :  0.875091575092
+ExtraTreesClassifier :  0.893223443223
+AdaBoostClassifier :  0.865567765568
+LogisticRegression :  0.768315018315
+MultinomialNB :  0.643406593407
+SVM gaussian kernel (C = 50, gamma = 1):  0.902747252747
+
+Precision Scores
+
+RandomForestClassifier :  0.893649267399
+ExtraTreesClassifier :  0.886611721612
+AdaBoostClassifier :  0.883053490627
+LogisticRegression :  0.775230194642
+MultinomialNB :  0.748807858808
+SVM gaussian kernel (C = 50, gamma = 1):  0.900087804353
+
+Recall Scores
+
+RandomForestClassifier :  0.909743589744
+ExtraTreesClassifier :  0.953846153846
+AdaBoostClassifier :  0.908717948718
+LogisticRegression :  0.886666666667
+MultinomialNB :  0.644615384615
+SVM gaussian kernel (C = 50, gamma = 1):  0.954871794872
+
+F1 Scores
+
+RandomForestClassifier :  0.899578249337
+ExtraTreesClassifier :  0.917501655433
+AdaBoostClassifier :  0.891943195984
+LogisticRegression :  0.825804565805
+MultinomialNB :  0.688218982972
+SVM gaussian kernel (C = 50, gamma = 1):  0.924820749143
+
+MW1.arff
+
+Positive instances :  81
+Negative instances :  237
+
+Accuracy Scores
+
+RandomForestClassifier :  0.867245657568
+ExtraTreesClassifier :  0.88982630273
+AdaBoostClassifier :  0.882051282051
+LogisticRegression :  0.844665012407
+MultinomialNB :  0.813068651778
+SVM gaussian kernel (C = 50, gamma = 1):  0.853019023987
+
+Precision Scores
+
+RandomForestClassifier :  0.809325396825
+ExtraTreesClassifier :  0.814628427128
+AdaBoostClassifier :  0.791944444444
+LogisticRegression :  0.826428571429
+MultinomialNB :  0.710873015873
+SVM gaussian kernel (C = 50, gamma = 1):  0.734563492063
+
+Recall Scores
+
+RandomForestClassifier :  0.656944444444
+ExtraTreesClassifier :  0.756944444444
+AdaBoostClassifier :  0.754166666667
+LogisticRegression :  0.519444444444
+MultinomialNB :  0.481944444444
+SVM gaussian kernel (C = 50, gamma = 1):  0.668055555556
+
+F1 Scores
+
+RandomForestClassifier :  0.716126373626
+ExtraTreesClassifier :  0.776566671203
+AdaBoostClassifier :  0.767996830311
+LogisticRegression :  0.62313940961
+MultinomialNB :  0.565057165057
+SVM gaussian kernel (C = 50, gamma = 1):  0.694731738849
+
+PC1.arff
+
+Positive instances :  183
+Negative instances :  698
+
+Accuracy Scores
+
+RandomForestClassifier :  0.912280084448
+ExtraTreesClassifier :  0.924912033779
+AdaBoostClassifier :  0.888904527328
+LogisticRegression :  0.84038235984
+MultinomialNB :  0.826460239268
+SVM gaussian kernel (C = 50, gamma = 1):  0.885714285714
+
+Precision Scores
+
+RandomForestClassifier :  0.849238205035
+ExtraTreesClassifier :  0.883172219937
+AdaBoostClassifier :  0.750349469932
+LogisticRegression :  0.789668664669
+MultinomialNB :  0.765897435897
+SVM gaussian kernel (C = 50, gamma = 1):  0.775446249657
+
+Recall Scores
+
+RandomForestClassifier :  0.714285714286
+ExtraTreesClassifier :  0.748412698413
+AdaBoostClassifier :  0.716666666667
+LogisticRegression :  0.34126984127
+MultinomialNB :  0.257936507937
+SVM gaussian kernel (C = 50, gamma = 1):  0.657936507937
+
+F1 Scores
+
+RandomForestClassifier :  0.768976195138
+ExtraTreesClassifier :  0.803835763507
+AdaBoostClassifier :  0.728586515429
+LogisticRegression :  0.461799719582
+MultinomialNB :  0.369249442314
+SVM gaussian kernel (C = 50, gamma = 1):  0.703603155233
+
+PC2.arff
+
+Positive instances :  48
+Negative instances :  1569
+
+Accuracy Scores
+
+/Library/Python/2.7/site-packages/scikit_learn-0.15_git-py2.7-macosx-10.9-intel.egg/sklearn/metrics/metrics.py:1660: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples.
+  'precision', 'predicted', average, warn_for)
+/Library/Python/2.7/site-packages/scikit_learn-0.15_git-py2.7-macosx-10.9-intel.egg/sklearn/metrics/metrics.py:1660: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 due to no predicted samples.
+  'precision', 'predicted', average, warn_for)
+RandomForestClassifier :  0.976850282486
+ExtraTreesClassifier :  0.977355225989
+AdaBoostClassifier :  0.980180084746
+LogisticRegression :  0.970095338983
+MultinomialNB :  0.966405367232
+SVM gaussian kernel (C = 50, gamma = 1):  0.975660310734
+
+Precision Scores
+
+RandomForestClassifier :  0.633333333333
+ExtraTreesClassifier :  0.666666666667
+AdaBoostClassifier :  0.776666666667
+LogisticRegression :  0.0
+MultinomialNB :  0.15
+SVM gaussian kernel (C = 50, gamma = 1):  0.658333333333
+
+Recall Scores
+
+RandomForestClassifier :  0.266666666667
+ExtraTreesClassifier :  0.283333333333
+AdaBoostClassifier :  0.475
+LogisticRegression :  0.0
+MultinomialNB :  0.1
+SVM gaussian kernel (C = 50, gamma = 1):  0.45
+
+F1 Scores
+
+RandomForestClassifier :  0.35619047619
+ExtraTreesClassifier :  0.387142857143
+AdaBoostClassifier :  0.540634920635
+LogisticRegression :  0.0
+MultinomialNB :  0.119047619048
+SVM gaussian kernel (C = 50, gamma = 1):  0.521405228758
+
+PC3.arff
+
+Positive instances :  420
+Negative instances :  985
+
+Accuracy Scores
+
+RandomForestClassifier :  0.881133004926
+ExtraTreesClassifier :  0.903842364532
+AdaBoostClassifier :  0.86342364532
+LogisticRegression :  0.740812807882
+MultinomialNB :  0.711034482759
+SVM gaussian kernel (C = 50, gamma = 1):  0.833448275862
+
+Precision Scores
+
+RandomForestClassifier :  0.812712730759
+ExtraTreesClassifier :  0.843903890262
+AdaBoostClassifier :  0.78351887171
+LogisticRegression :  0.600760574036
+MultinomialNB :  0.579957264957
+SVM gaussian kernel (C = 50, gamma = 1):  0.731855474874
+
+Recall Scores
+
+RandomForestClassifier :  0.785714285714
+ExtraTreesClassifier :  0.838095238095
+AdaBoostClassifier :  0.752380952381
+LogisticRegression :  0.407142857143
+MultinomialNB :  0.119047619048
+SVM gaussian kernel (C = 50, gamma = 1):  0.702380952381
+
+F1 Scores
+
+RandomForestClassifier :  0.797160681835
+ExtraTreesClassifier :  0.839170037927
+AdaBoostClassifier :  0.765498523417
+LogisticRegression :  0.483261598585
+MultinomialNB :  0.195936189176
+SVM gaussian kernel (C = 50, gamma = 1):  0.714526613953
+
+PC4.arff
+
+Positive instances :  534
+Negative instances :  1221
+
+Accuracy Scores
+
+RandomForestClassifier :  0.92873015873
+ExtraTreesClassifier :  0.944698412698
+AdaBoostClassifier :  0.916746031746
+LogisticRegression :  0.827396825397
+MultinomialNB :  0.733873015873
+SVM gaussian kernel (C = 50, gamma = 1):  0.891650793651
+
+Precision Scores
+
+RandomForestClassifier :  0.878715905497
+ExtraTreesClassifier :  0.896102039437
+AdaBoostClassifier :  0.874808392427
+LogisticRegression :  0.769282739598
+MultinomialNB :  0.661438405797
+SVM gaussian kernel (C = 50, gamma = 1):  0.830245219946
+
+Recall Scores
+
+RandomForestClassifier :  0.891360476663
+ExtraTreesClassifier :  0.928831512744
+AdaBoostClassifier :  0.851870241642
+LogisticRegression :  0.621516054287
+MultinomialNB :  0.256107249255
+SVM gaussian kernel (C = 50, gamma = 1):  0.812644819596
+
+F1 Scores
+
+RandomForestClassifier :  0.883808280744
+ExtraTreesClassifier :  0.911060179348
+AdaBoostClassifier :  0.860828981484
+LogisticRegression :  0.686237627647
+MultinomialNB :  0.365264873913
+SVM gaussian kernel (C = 50, gamma = 1):  0.820551938097
+
+PC5.arff
+
+Positive instances :  1509
+Negative instances :  16498
+
+Accuracy Scores
+
+RandomForestClassifier :  0.976454246485
+ExtraTreesClassifier :  0.977620000588
+AdaBoostClassifier :  0.967622247308
+LogisticRegression :  0.94358089908
+MultinomialNB :  0.936854419856
+SVM gaussian kernel (C = 50, gamma = 1):  0.964011730697
+
+Precision Scores
+
+RandomForestClassifier :  0.856083280405
+ExtraTreesClassifier :  0.847178969495
+AdaBoostClassifier :  0.809833027572
+LogisticRegression :  0.699766181601
+MultinomialNB :  0.727199919475
+SVM gaussian kernel (C = 50, gamma = 1):  0.781210493276
+
+Recall Scores
+
+RandomForestClassifier :  0.864943396226
+ExtraTreesClassifier :  0.896125786164
+AdaBoostClassifier :  0.805169811321
+LogisticRegression :  0.576012578616
+MultinomialNB :  0.395320754717
+SVM gaussian kernel (C = 50, gamma = 1):  0.793169811321
+
+F1 Scores
+
+RandomForestClassifier :  0.860263063593
+ExtraTreesClassifier :  0.870474570075
+AdaBoostClassifier :  0.806257364998
+LogisticRegression :  0.630725598343
+MultinomialNB :  0.511407241375
+SVM gaussian kernel (C = 50, gamma = 1):  0.786702915832
+
+bash-3.2$ exit
+exit
+
+Script done on Sun Nov 16 13:12:38 2014

@@ -1,3 +1,9 @@
+'''
+Example usage:
+python selectFeatures.py final.arff 0 1 2
+This command will filter features at index 0 1 and 2 and write new file at filtered.arff 
+'''
+
 import numpy as np
 import sys
 
@@ -18,22 +24,22 @@ for i in xrange(len(sys.argv[2:])):
 
 a = f.readline()
 cnt = 1
-while cnt<10:
-#while a:
+
+while a:
 	# to remove new line character
 	a = a[0:len(a)-1]
 	b = a.split(",")
 
 	for i in xrange(len(b)):
-		if not(i in selected_features):
+		if (i == len(b)-1):
 			filtered.write(b[i])
-			if(i < len(b)-1):
-				filtered.write(",")
-			else:
-				filtered.write("\n")
+			filtered.write("\n")
+		elif i in selected_features:
+			filtered.write(b[i])
+			filtered.write(",")
+			
 
 	a = f.readline()
-	cnt += 1
 
 f.close()
 filtered.close()
