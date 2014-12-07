@@ -1,3 +1,8 @@
+'''
+If you run this file directly, it will run ROC analysis on the hardcoded data file given below.
+Otherwise this file can be used by using exported function: plotroc
+'''
+
 from sklearn.naive_bayes import MultinomialNB
 from CrossValidation import CrossValidation
 
@@ -79,7 +84,7 @@ def plotroc(X,y,N=200,k=5,clf=None,modelname="None"):
 
 if __name__ == "__main__":
 
-	dataFiles = ["PC4.arff"]
+	dataFiles = ["filtered.arff"]
 	fpr1 = dict()
 	tpr1 = dict()
 	roc_auc1 = dict()
