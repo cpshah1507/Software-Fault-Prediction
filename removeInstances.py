@@ -1,7 +1,7 @@
 '''
 Example usage:
 python removeInstances.py final.arff 1 2 3
-This command will filter instance numbers 1,2 and 3 and write new file at filtered-.arff 
+This command will filter instance numbers 1,2 and 3 and write new file at instanceFiltered.arff 
 '''
 
 import numpy as np
