@@ -8,10 +8,9 @@ if [ "$#" -ne 2 ]; then
   exit 1
 fi
 
-for i in `seq 1 10`;
-do
-        python featureSelection.py $1 $2 >> temp1
-        # echo "$i"
+for i in $(seq 1 10); do
+    python featureSelection.py $1 $2 >> temp1
+    # echo "$i"
 done  
 
 while read line           
