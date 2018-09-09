@@ -1,0 +1,13 @@
+#! /usr/bin/env bash
+python crossVal.py CM1.arff
+python crossVal.py JM1.arff
+python crossVal.py KC1.arff
+python crossVal.py KC3.arff
+python crossVal.py MC1.arff
+python crossVal.py MC2.arff
+python crossVal.py MW1.arff
+python crossVal.py PC1.arff
+python crossVal.py PC2.arff
+python crossVal.py PC3.arff
+python crossVal.py PC4.arff
+python crossVal.py PC5.arff
